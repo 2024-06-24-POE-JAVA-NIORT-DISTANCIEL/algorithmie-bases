@@ -1,0 +1,54 @@
+
+// Étape 01 Fonctions :
+
+fonction ajouterTache(taches, tache) // Ajoute une tâche au tableau.
+    ajouter tache à taches
+    afficher "Tâche ajoutée."
+
+fonction supprimerTache(taches, index) // Supprime une tâche à l'index donné si l'index est valide.
+    si index >= 0 et index < longueur(taches) alors
+        supprimer l'élément à l'index de taches
+        afficher "Tâche supprimée."
+    sinon
+        afficher "Index invalide."
+
+fonction listerTaches(taches) // Liste toutes les tâches avec leur index.
+    si longueur(taches) == 0 alors
+        afficher "Aucune tâche dans la liste."
+    sinon
+        pour i de 0 à longueur(taches) - 1 faire
+            afficher i + ": " + taches[i]
+
+
+// Étape 02 tableau des tâches : Un tableau vide pour stocker les tâches.
+
+taches = []
+
+// Étape 03 et 04 Interactions utilisateur : Affiche un menu pour l'utilisateur, Lit l'entrée de l'utilisateur et appelle la fonction appropriée selon le choix, Continue jusqu'à ce que l'utilisateur choisisse de quitter (choix == 4)
+
+fonction principal()
+    faire
+        afficher "Menu:"
+        afficher "1. Ajouter une tâche"
+        afficher "2. Supprimer une tâche"
+        afficher "3. Lister les tâches"
+        afficher "4. Quitter"
+        choix = lire l'entrée utilisateur
+
+        si choix == 1 alors
+            afficher "Entrer la tâche à ajouter :"
+            tache = lire l'entrée utilisateur
+            ajouterTache(taches, tache)
+        sinon si choix == 2 alors
+            afficher "Entrer l'index de la tâche à supprimer :"
+            index = lire l'entrée utilisateur
+            supprimerTache(taches, index)
+        sinon si choix == 3 alors
+            listerTaches(taches)
+        sinon si choix == 4 alors
+            afficher "Au revoir !"
+        sinon
+            afficher "Choix invalide."
+    jusqu'à (choix == 4)
+
+principal()
